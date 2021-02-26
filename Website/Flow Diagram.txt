@@ -1,0 +1,11 @@
+Main Website (Heart Info) -----> Name & Email Id -------> Submit
+Redirect -----> Docker  ------> Age Diabetes Smoker etc..... -----> Predict
+-----> Display Message -----> If not safe -----> Show Drop Down -------> User will select option
+-----> Query to search for doctors in data base ------> Display the data on the screen -----> end
+
+Dropdown
+
+Kothrud -----> python input ------> sql query generate -----> output show
+Hinjewadi
+Shivaji Nagar
+Baner 

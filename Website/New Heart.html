@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Heart Failure Prediction System</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .header {
+                overflow: hidden;
+                border-radius: 15px;
+                background-color: #ffffff;
+                padding: 15px 10px;
+            }
+            
+            .header a {
+                float: center;
+                color: black;
+                text-align: center;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                line-height: 25px;
+                border-radius: 4px;
+            }
+            
+            /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+            .header a.logo {
+                font-size: 25px;
+                font-weight: bold;
+                float: center;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+            
+            /* Change the background color on mouse-over 
+            .header a:hover {
+            background-color: #ddd;
+            color: black;
+            }*/
+            
+            /* Style the active/current link*/
+            .header a.active {
+            background-color: dodgerblue;
+            color: white;
+            }
+            
+            /* Float the link section to the right */
+            .header-right {
+                margin-left: 40%;
+            }
+            
+            /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+            @media screen and (max-width: 500px) {
+            .header a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .header-right {
+                float: none;
+            }
+            }
+
+            #HeartDiagram{
+                /* border: 2px solid black; 
+                vertical-align: middle;
+                margin-left: 20px;
+                box-shadow: 5px 5px 2px rgb(150, 145, 145);*/
+                float: left;
+                padding-right: 15px;
+            }
+
+            #StructureOfHeart{
+                font-family: helvetica; 
+                margin-left: 55%; 
+                border-radius: 15px;
+                /*box-shadow: 10px 10px 5px rgb(167, 164, 164);*/
+                background-color: rgb(170, 0, 0);
+            }
+
+
+
+            /*footer*/
+            .col_white_amrc { color:#FFF;}
+            footer { width:100%; background-color:#263238; min-height:250px; padding:10px 0px 25px 0px ;}
+            .pt2 { padding-top:40px ; margin-bottom:20px ;}
+            footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
+            .mb10 { padding-bottom:15px ;}
+            .footer_ul_amrc { margin:0px ; list-style-type:none ; font-size:14px; padding:0px 0px 10px 0px ; }
+            .footer_ul_amrc li {padding:0px 0px 5px 0px;}
+            .footer_ul_amrc li a{ color:#CCC;}
+            .footer_ul_amrc li a:hover{ color:#fff; text-decoration:none;}
+            .fleft { float:left;}
+            .padding-right { padding-right:10px; }
+
+            .footer_ul2_amrc {margin:0px; list-style-type:none; padding:0px;}
+            .footer_ul2_amrc li p { display:table; }
+            .footer_ul2_amrc li a:hover { text-decoration:none;}
+            .footer_ul2_amrc li i { margin-top:5px;}
+
+            .bottom_border { border-bottom:1px solid #323f45; padding-bottom:20px;}
+            .foote_bottom_ul_amrc {
+                list-style-type:none;
+                padding:0px;
+                display:table;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-bottom: 10px;
+                margin-left: auto;
+            }
+            .foote_bottom_ul_amrc li { display:inline;}
+            .foote_bottom_ul_amrc li a { color:#999; margin:0 12px;}
+
+            .social_footer_ul { display:table; margin:15px auto 0 auto; list-style-type:none;  }
+            .social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
+            .social_footer_ul li a { color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
+            .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+
+        </style>
+
+        <hr style="height:70px;border-width:0;color:#263238;background-color:#263238">
+        
+        <div class="header">
+            <a href="#default" class="logo"><img src="HFPS.png"></a>
+            <br><hr style="height:1px;border-width:0;color:rgb(100, 99, 99);background-color:rgb(100, 99, 99);"><br>
+            <div class="header-right">
+              <a class="active" href="#home">Home</a>
+              <a href="#predict">Predict</a>
+              <a href="#about">About</a>
+            </div>
+        </div>
+        <hr style="height:2px;border-width:0;color:rgb(100, 99, 99);background-color:rgb(100, 99, 99); box-shadow: 0px 2px 1px rgb(168, 164, 164);">
+        <br><br><br>
+    </head>
+    <body>
+        <div id = "KnowYourHeart" class = "Introduction">
+            <!--<img src = "think.jpg" height="90" width=7% style="float: left;">
+            <img src = "think.jpg" height="90" width=7% style="float: right;">-->
+            <h1 ALIGN = Left><font size = 6px style="font-family: helvetica; margin-left: 25px;">How well do you know your heart?</font></h1>
+            
+            <br>
+            <div id = "HeartImg" style="flex-basis: 40%;">
+                <p>
+                    <img src = "Human Heart.jpg" id = "HeartDiagram" width = 50% height= 800px>
+                    <h2 id = "StructureOfHeart" ALIGN = "center"><font color = "white">Structure of the Heart</font></h2> 
+                    <p style= "font-family: Helvetica; font-size: 17px; margin-left: 54%;">
+                        The human heart is a four-chambered muscular organ, shaped and sized roughly like a man's closed fist 
+                        with two-thirds of the mass to the left of midline.
+                        <br><br>
+                        The heart is enclosed in a pericardial sac that is lined with the parietal layers of a serous membrane. 
+                        The visceral layer of the serous membrane forms the epicardium.
+                        <br><br>
+                        <font style= "font-family: Helvetica; font-size: 22px; color:rgb(0, 0, 136)"><b>Layers of the Heart Wall:</b></font>
+                        <br><br>
+                        Three layers of tissue form the heart wall. The outer layer of the heart wall is the epicardium, 
+                        the middle layer is the myocardium, and the inner layer is the endocardium.
+                        <br><br>
+                        <font style= "font-family: Helvetica; font-size: 22px; color:rgb(0, 0, 136)"><b>Chambers of the Heart:</b></font>
+                        <br><br>
+                        The internal cavity of the heart is divided into four chambers:
+                        <ul style= "font-family: Helvetica; font-size: 17px; margin-left: 54%;">
+                            <li>Right atrium</li>
+                            <li>Right ventricle</li>
+                            <li>Left atrium</li>
+                            <li>Left ventricle</li>
+                        </ul>
+                        <p style= "font-family: Helvetica; font-size: 17px; margin-left: 54%;">
+                            The two atria are thin-walled chambers that receive blood from the veins. The two ventricles are thick-walled 
+                            chambers that forcefully pump blood out of the heart. Differences in thickness of the heart chamber walls are 
+                            due to variations in the amount of myocardium present, which reflects the amount of force each chamber is required to generate.
+                            <br><br>
+                            The right atrium receives deoxygenated blood from systemic veins; the left atrium receives oxygenated blood from 
+                            the pulmonary veins.
+                        </p>
+                        
+                    </p>
+                    
+                </p>
+            </div>
+        </div> 
+
+
+        <br><br><br>
+        <hr>
+        <div id = "KeepYourHeartHealthy" class = "Body">
+            <img src="Signs 2.jpg" id = "HeartAttack" height="700" width = 50% style="margin-left: 2%; float: right;">
+            <h2 ALIGN = "left"><font color = "white" style="border-radius: 15px; font-family: helvetica; padding-left: 7%; padding-right: 7%; background-color: rgb(170, 0, 0); margin-left: 6%; margin-right: 5%;">Heart Attacks</font></h1>
+            
+            <p style= "font-family: Helvetica; font-size: 17px; margin-right: 50%; margin-left: 25px;">
+                <font style= "font-family: Helvetica; font-size: 22px; color:rgb(0, 0, 136)"><b>What is a heart attack?</b></font>
+                <br><br>
+                A heart attack happens when blood flow to the heart is suddenly blocked. 
+                Part of the heart may die if the person doesn’t get help quickly.
+                <br><br>
+                <font style= "font-family: Helvetica; font-size: 22px; color:rgb(0, 0, 136)"><b>Some common signs of a heart attack include:</b></font>
+                <br>
+            </p>
+            <ul style= "font-family: Helvetica; font-size: 17px; margin-right: 54%; margin-left: 20px;">
+                <li>Pain or discomfort in the center or left side of the chest</li>
+                <li>Pain or discomfort in the upper body – (above the belly button)</li>
+                <li>Shortness of breath or trouble breathing (while resting/active)</li>
+                <li>Feeling sick to your stomach or throwing up</li>
+                <li>Stomach ache or feeling like you have heartburn </li>
+                <li>Feeling dizzy, light-headed, or unusually tired</li>
+                <li>Breaking out in a cold sweat</li>
+            </ul>
+            <p style= "font-family: Helvetica; font-size: 17px; margin-right: 50%; margin-left: 25px;">
+                <font style= "font-family: Helvetica; font-size: 22px; color:rgb(0, 0, 136)"><b>When to Call 102?</b></font>
+                <br><br>
+                Don’t ignore any signs or feel embarrassed to call for help. Acting fast can save a life. 
+                Call 102 even if you aren't sure it’s a heart attack.
+                <br><br>
+                An ambulance is the best and safest way to get to the hospital. 
+                In an ambulance, EMTs (emergency medical technicians) can keep track of how you are doing and start life-saving treatments right away.
+                <br><br>
+                People who call an ambulance often get treated faster at the hospital. 
+                And, if you call 102, the operator can tell you what to do until the ambulance gets there.
+            </p>  
+        </div>
+
+        <br><br>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+        <!--footer starts from here-->
+        <footer class="footer">
+        <div class="container bottom_border">
+        <div class="row">
+        <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+        <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+        <!--headin5_amrc-->
+        
+        <p><i class="fa fa-location-arrow"></i> P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park, Hinjawadi, Pune, Maharashtra 411057 </p>
+        <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+        <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
+
+
+        </div>
+
+
+        
+        <div class=" col-sm-4 col-md  col-12 col">
+        <h5 class="headin5_amrc col_white_amrc pt2">About us</h5>
+        <!--headin5_amrc ends here-->
+
+        <ul class="footer_ul2_amrc">
+        <li><p>We intend to develop a robust hybrid prediction model for detecting a heart failure in a patient during the follow up period of the patient so that the they can be more aware of their heart conditions and can take the necessary actions according to their heart condition.
+        </p></li>
+        </ul>
+        <!--footer_ul2_amrc ends here-->
+        </div>
+        </div>
+        </div>
+
+
+        <div class="container">
+        <!--
+        <ul class="foote_bottom_ul_amrc">
+        <li><a href="http://webenlance.com">Home</a></li>
+        <li><a href="http://webenlance.com">Contact</a></li>
+        </ul> -->
+       
+        <!--foote_bottom_ul_amrc ends here-->
+        <p class="text-center">Copyright @2021 | Designed by <a href="#">Heart Failure Prediction Sysytem</a></p>
+
+        <ul class="social_footer_ul">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <!--social_footer_ul ends here-->
+        </div>
+
+        </footer>
+
+
+        
+    </body>
+</html>
