@@ -2,7 +2,10 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-heart_dtc = pickle.load(open('dtc.pkl', 'rb'))
+dclf_heart = pickle.load(open('dclf.pkl', 'rb'))
+xrclf_heart = pickle.load(open('xrclf.pkl', 'rb'))
+xclf_heart = pickle.load(open('xclf.pkl', 'rb'))
+
 
 app = Flask(__name__)
 
@@ -25,10 +28,23 @@ def home():
 	feature10 = int(request.form['j'])
 	feature11 = int(request.form['k'])
 	feature12 = int(request.form['l'])
-	arr = np.array([[feature1, feature2, feature3, feature4, feature5, feature6, feature7, feature8, feature9, feature10, feature11, feature12]])
-	pred = heart_dtc.predict(arr)
+	
+	arr = np.array([[feature1, feature2, feature3, feature5, feature6, feature7, feature8, feature9, feature11, feature12]])
+	
+	pred1 = dclf_heart.predict(arr)
+	pred2 = xrclf_heart.predict(arr)
+	pred3 = xclf_heart.predict(arr)
+
+	final_pred = [pred1, pred2, pred3]
+	
+	if final_pred.count(1) > final_pred.count(0):
+		pred = 1
+	else:
+		pred = 0
+
 	return render_template('after.html', data=pred)
 
 
 if __name__=="__main__":
 	app.run(debug=True)
+
