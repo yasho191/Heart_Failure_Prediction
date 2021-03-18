@@ -11,25 +11,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def man(): 
-	return render_template('home.html')
+	return render_template('PredictionForm.html')
 
 
 @app.route('/predict', methods=['POST'])
 def home():
-	feature1 = int(request.form['a'])
-	feature2 = int(request.form['b'])
-	feature3 = int(request.form['c'])
-	feature4 = int(request.form['d'])
-	feature5 = int(request.form['e'])
-	feature6 = int(request.form['f'])
-	feature7 = int(request.form['g'])
-	feature8 = int(request.form['h'])
-	feature9 = int(request.form['i'])
-	feature10 = int(request.form['j'])
-	feature11 = int(request.form['k'])
-	feature12 = int(request.form['l'])
+	feature1 = int(request.form['Age'])
+	feature2 = int(request.form['Gender'])
+	feature3 = int(request.form['Anaemia'])
+	feature4 = int(request.form['Ejection Fraction'])
+	feature5 = int(request.form['Serum Sodium'])
+	feature6 = int(request.form['Serum Creatinine'])
+	feature7 = int(request.form['Creatinine Phosphokinase'])
+	feature8 = int(request.form['Smoking'])
+	feature9 = int(request.form['Follow-Up Time'])
+	feature10 = int(request.form['Platelets'])
+	feature11 = int(request.form['High Blood Pressure'])
+	feature12 = int(request.form['Diabetes'])
 	
-	arr = np.array([[feature1, feature2, feature3, feature5, feature6, feature7, feature8, feature9, feature11, feature12]])
+	arr = np.array([[feature1, feature3, feature7, feature12, feature4, feature11, feature10, feature6, feature5, feature2]])
+	print(arr)
 	
 	pred1 = dclf_heart.predict(arr)
 	pred2 = xrclf_heart.predict(arr)
@@ -42,7 +43,9 @@ def home():
 	else:
 		pred = 0
 
-	return render_template('after.html', data=pred)
+	print(pred)
+
+	return render_template('message.html', data=pred)
 
 
 if __name__=="__main__":
