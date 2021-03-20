@@ -128,10 +128,11 @@
 <body>
 
 <div id="id01" class="modal">
-    <form class="modal-content" method="POST" action="{{ url_for('predict') }}">
+    <form class="modal-content" method="POST" action="{{ url_for('signin') }}">
       <div class="container">
         <h1>Login </h1>
         <p>Please fill in this form to Login an account.</p>
+	"{{ show }}"
         <hr>
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
@@ -140,7 +141,7 @@
         <input type="password" placeholder="Enter Password" name="password" required>
   
         <div class="clearfix">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="/home" style="color: #fefefe;">Cancel</a></button>
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="/" style="color: #fefefe;">Cancel</a></button>
           <button type="submit" class="signupbtn">Signin</button>
         </div>
       </div>
