@@ -32,13 +32,13 @@ def find(name, password):
     for i in l:
         if i[0]==name and i[1]==password:
             print("record is present in db")
-            return 1
+            return i
     return 0
 
 
 
 
-"""
+
 import pymysql
 db=pymysql.connect(host="database-1.crewf9jbpd79.ap-south-1.rds.amazonaws.com",
         user='yash',
@@ -48,34 +48,28 @@ db=pymysql.connect(host="database-1.crewf9jbpd79.ap-south-1.rds.amazonaws.com",
 
 cursor=db.cursor()
 
-#cursor.execute('CREATE DATABASE mydb')
-cursor.execute("SHOW DATABASES")
-
-for i in cursor:
-    print(i)
-#cursor.execute("CREATE TABLE customers (email VARCHAR(255), password VARCHAR(255))")
-
-"""
 
 @app.route('/')
-def first_page():
+def home():
     return render_template('Home.html')
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
-    #form = MyForm()
-    if request.method == 'GET':
 
+    if request.method == 'GET':
         return render_template('signup.html')
 
     elif  request.method == 'POST':
-        # use the form somehow
-        # ...
         email = request.form['email']
         password = request.form['password']
-        #insert(email,make_hashes(password))
-        print('User added successfuly..')
-        return redirect('/signin')
+        hashed_pswd = make_hashes(password=password)
+        result = find(email,check_hashes(password,hashed_pswd))
+        if result!=0  and  result[0]==email:
+            return render_template('signup.html', show='user is already present..')
+        else:
+            insert(email,make_hashes(password))
+            print('User added successfuly..')
+            return redirect('/signin')
 
 @app.route('/signin', methods=['GET','POST'])
 def signin():
@@ -83,41 +77,23 @@ def signin():
     if request.method == 'GET':
         return render_template('signin.html')
 
-    if request.form.values() and request.method == 'POST':
+    elif request.form.values() and request.method == 'POST':
 
         email = request.form['email']
         password = request.form['password']
         hashed_pswd = make_hashes(password=password)
-        #result = find(email,check_hashes(password,hashed_pswd))
-        print('record is created...')
+        result = find(email,check_hashes(password,hashed_pswd))
 
         if result:
-            return redirect('/predict')
+            return render_template('PredictionForm.html')
         else:
             return render_template('signin.html', show="Incorrect Username/Password")
 
-@app.route('/predict',methods=['GET','POST'])
-def predict():
-    """
-    cursor.execute("select * from customers")
-    data = cursor.fetchall()
-    l = []
-    for i in data:
-        l.append(i)
-    return "you are in predict page {}".format(l)
-    """
-    if request.method == 'POST' :
-        return render_template("PredictionForm.html")
+
 
 @app.route('/message', methods=['GET',"POST"])
 def message():
-    """cursor.execute("select * from customers")
-    data = cursor.fetchall()
-    l = []
-    for i in data:
-        l.append(i)
-    return ' you are in home page {}'.format(l)
-    """
+
     feature1 = int(request.form['Age'])
     feature2 = int(request.form['Gender'])
     feature3 = int(request.form['Anaemia'])
