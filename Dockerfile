@@ -1,0 +1,2 @@
+FROM hfps:v1
+EXPOSE 5000
