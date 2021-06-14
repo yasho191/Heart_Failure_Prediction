@@ -1,27 +1,253 @@
-<html>
-	<body>
-		<center>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HFPS</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <style>
+      .bull{
+        height: 16px;
+      }
+      ul {
+        padding-left: 2rem;
+        list-style-type: none;
+        margin: 45px;
+        padding: 10px;
+      }
+      
+      li{
+        margin: 29px;
+        justify-content: end;
+        flex-wrap: wrap;
+      }
+      img{
+        height: 300px;
+      }
+      .links:link, .links:visited {
+      background-color: white;
+      color: black;
+      border: 2px solid #0d6efd;
+      border-radius:20px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      }
+    #signs{
+      height: 800px;
+      width: 90%;
+      margin-left: 50px;
+    }
 
-			<h1> HEART ATTACK PREDICTION </h1>
-			<body background=''>
+    .links:hover, .links:active {
+  background-color: #0d6efd;
+  color: white;
+}
+  /*footer*/
+  .col_white_amrc { color:#FFF;}
+            footer { width:100%; background-color:#263238; min-height:250px; padding:10px 0px 25px 0px ;}
+            .pt2 { padding-top:40px ; margin-bottom:20px ;}
+            footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
+            .mb10 { padding-bottom:15px ;}
+            .footer_ul_amrc { margin:0px ; list-style-type:none ; font-size:14px; padding:0px 0px 10px 0px ; }
+            .footer_ul_amrc li {padding:0px 0px 5px 0px;}
+            .footer_ul_amrc li a{ color:#CCC;}
+            .footer_ul_amrc li a:hover{ color:#fff; text-decoration:none;}
+            .fleft { float:left;}
+            .padding-right { padding-right:10px; }
 
-				<form method="POST", action="{{url_for('home')}}">
-					<b> Age : <input type="number", name='a', placeholder='Age'><br><br>
-					<b> Anaemia : <input type="number", name='b', placeholder='Anaemia'><br><br>
-					<b> Creatinine Phosphokinase : <input type="number", name='c', placeholder='Creatinine Phosphokinase'><br><br>
-					<b> Diabetes : <input type="number", name='d', placeholder='Diabetes'><br><br>
-					<b> Ejection Fraction : <input type="number", name='e', placeholder='Ejection Fraction'><br><br>
-					<b> High Blood Pressure : <input type="number", name='f', placeholder='High Blood Pressure'><br><br>
-					<b> Platelets : <input type="number", name='g', placeholder='Platelets'><br><br>
-					<b> Serum Creatinine : <input type="number", name='h', placeholder='Serum Creatinine'><br><br>
-					<b> Serum Sodium : <input type="number", name='i', placeholder='Serum Sodium'><br><br>
-					<b> Gender : <input type="number", name='j', placeholder='Gender'><br><br>
-					<b> Smoking : <input type="number", name='k', placeholder='Smoking'><br><br>
-					<b> Time : <input type="number", name='l', placeholder='Time'><br><br>
-					<input type="submit", value='pred'>
-				</b>
-			</form> 
+            .footer_ul2_amrc {margin:0px; list-style-type:none; padding:0px;}
+            .footer_ul2_amrc li p { display:table; }
+            .footer_ul2_amrc li a:hover { text-decoration:none;}
+            .footer_ul2_amrc li i { margin-top:5px;}
 
-		</center>
-	</body>
-	</html>
+            .bottom_border { border-bottom:1px solid #323f45; padding-bottom:20px;}
+            .foote_bottom_ul_amrc {
+                list-style-type:none;
+                padding:0px;
+                display:table;
+                margin-top: 10px;
+                margin-right: auto;
+                margin-bottom: 10px;
+                margin-left: auto;
+            }
+            .foote_bottom_ul_amrc li { display:inline;}
+            .foote_bottom_ul_amrc li a { color:#999; margin:0 12px;}
+
+            .social_footer_ul { display:table; margin:15px auto 0 auto; list-style-type:none;  }
+            .social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
+            .social_footer_ul li a { color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
+            .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+    </style>
+  </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid" style="background-color: white;">
+      <img src="static/images/HFPS.png" style="height: 80px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signin">Predict</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br><br><br><br><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"><p style="font-family: 'PT Sans', sans-serif;
+        color: blueviolet;
+        letter-spacing: 0px;
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-transform: none;
+        margin: 0 20px 0 0;">How Well Do you know your heart?</p><br>
+        Let's take a look. <br><br>
+        <a href="#heart" class="links">Read More</a></div>
+      <div class="col-md-4 offset-md-1"> <img src="static/images/HFPS.png" style="margin:0 0 0 20%;"><br><a href="/signin" class="links" style="margin-left: 275px;">Predict Now</a></div></div>
+
+    </div>
+    <br><br><br><br>
+   <div class="scontainer">
+     <div class="row">
+       <div class="col-6"><img src="static/images/Signs2.jpg" id="signs"></div>
+       <div class="col-6"><h3 id="heart" style="font-family: 'Lora', serif;">Heart Attacks</h3><br><br>
+        <p style="font-size: 20px;">A heart attack happens when blood flow to the heart is suddenly blocked. Part of the heart may die if the person doesn’t get help quickly.</p>
+        <br><br><h3 style="font-family: 'Lora', serif;">Some common signs of Heart Attack include</h3>
+        <ul style="font-weight: bold;font-size: 20px;">
+          <img src="static/images/heart.png" class="bull" ><li class="bullet"style="display: inline;">Pain or discomfort in the center or left side of the chest</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Pain or discomfort in the upper body – (above the belly button)</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Shortness of breath or trouble breathing (while resting/active)</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Feeling sick to your stomach or throwing up</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Stomach ache or feeling like you have heartburn</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Feeling dizzy, light-headed, or unusually tired</li><br><br>
+          <img src="static/images/heart.png" class="bull" ><li style="display: inline;">Breaking out in a cold sweat</li><br>
+        </ul>
+      </div>
+     </div>
+   </div> 
+   <div class="whentocall">
+     <div class="row">
+       <div class="col-6 "><h4 style="margin:20% 0 0 20%;font-family: 'Lora', serif;font-weight: bold;font-size: 30px;" >When to call 102?</h4>
+      <p style="margin:20%; font-size: 20px;font-family: 'Oxygen', sans-serif;">Don’t ignore any signs or feel embarrassed to call for help. Acting fast can save a life. Call 102 even if you aren't sure it’s a heart attack. <br>
+ 
+       An ambulance is the best and safest way to get to the hospital. In an ambulance, EMTs (emergency medical technicians) can keep track of how you are doing and start life-saving treatments right away.
+       <br>
+       People who call an ambulance often get treated faster at the hospital. And, if you call 102, the operator can tell you what to do until the ambulance gets there. </p>
+      </div>
+      <div class="col-6 "><img src="static/images/min.jpg" style="width: 100%;height: 100%;"></div>
+    </div>
+   </div>
+   <div class="cpr">
+     <div class="row">
+       <div class="col-md-4">
+        <img src="static/images/CPR.png" style="width: 650px;height: 441px;">
+       </div>
+       <div class="col-md-4 offset-md-3">
+         <h2>What is CPR</h2> <br>
+         CPR – or Cardiopulmonary Resuscitation – is an emergency lifesaving procedure performed when the heart stops beating. Immediate CPR can double or triple chances of survival after cardiac arrest.
+
+       </div>
+     </div>
+     </div>
+     <div class="twosteps" style="width: 100%;height: 600px;background-color: #478ac9;">
+    <h2 style="margin: 2% 0 0 15%; color: white;padding: 3% 0 0 0;">How is CPR performed?</h2><br>
+    <img src="static/images/StepsCPR.jpg" style="margin: 2% 0 0 30%; width: 600px;height: 400px;" >
+    </div>
+    <div class="aboutus">
+      <div class="row">
+        <div class="col-5 mx-2">
+          <img src="static/images/aboutus.jpg" alt="doctorimage" style="width: 80%;height: 700px;margin: 20%;">
+        </div>
+        <div class="col-md-4 offset-md-1" style="margin-top: 6%;"><h2>About us</h2><br><p>Heart Failure Prediction</p> <br><p>We intend to develop a robust hybrid prediction model for detecting a heart failure in a patient during the follow up period of the patient so that the they can be more aware of their heart conditions and can take the necessary actions according to their heart condition.</p></div>
+      </div>
+    </div>
+   <!--footer starts from here-->
+   <footer class="footer">
+    <div class="container bottom_border">
+    <div class="row">
+    <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+    <!--headin5_amrc-->
+    
+    <p><i class="fa fa-location-arrow"></i> P-14, Phase 1, Hinjewadi Rajiv Gandhi Infotech Park, Hinjawadi, Pune, Maharashtra 411057 </p>
+    <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+    <p><i class="fa fa fa-envelope"></i> hfps@gmail.com </p>
+
+
+    </div>
+
+
+    
+    <div class=" col-sm-4 col-md  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2" id="about">About us</h5>
+    <!--headin5_amrc ends here-->
+
+    <ul class="footer_ul2_amrc">
+    <li><p>We intend to develop a robust hybrid prediction model for detecting a heart failure in a patient during the follow up period of the patient so that the they can be more aware of their heart conditions and can take the necessary actions according to their heart condition.
+    </p></li>
+    </ul>
+    <!--footer_ul2_amrc ends here-->
+    </div>
+    </div>
+    </div>
+
+
+    <div class="container">
+    <!--
+    <ul class="foote_bottom_ul_amrc">
+    <li><a href="http://webenlance.com">Home</a></li>
+    <li><a href="http://webenlance.com">Contact</a></li>
+    </ul> -->
+   
+    <!--foote_bottom_ul_amrc ends here-->
+    <p class="text-center">Copyright @2021 | Designed by <a href="#">Heart Failure Prediction Sysytem</a></p>
+
+    <ul class="social_footer_ul">
+    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+    <!--social_footer_ul ends here-->
+    </div>
+
+    </footer>
+
+   
+    
+
+  </body>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>
