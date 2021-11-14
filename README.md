@@ -1,7 +1,6 @@
 # Heart_Failure_Prediction
 
-## Research paper link:
-https://ieeexplore.ieee.org/document/9587466
+## Research paper link: [click here](https://ieeexplore.ieee.org/document/9587466)
 
 ## Abstract of the work done:
 The research aims on prediction of a heart failure using different machine learning algorithms and hybrid fusion techniques like majority voting of the best performing classifiers. This paper focuses on a majority based algorithm which uses the 3 best performing machine learning models out of the 10 selected machine learning models such as Logistic Regression, Decision Tree, Random Forest, Bagging Classifier, Gradient Boosting Classifier, Extreme Gradient Boosting Classifier, Extreme Gradient Boosting Random Forest, Extra Trees, Categorical Boosting Classifier and K-Nearest Neighbours. The top 3 classifiers are selected on the basis of their accuracy, f1-score and training time required. The minimum accuracy and F1-score score threshold is set to 90% so as to achieve better real world performance of the algorithm in terms of the ability to produce higher accuracy as well as the low time complexity. The proposed model combined the 3 best performing models using the voting method which yielded an Accuracy of 96.67%, a F1-Score of 95.24% and an AUC Score of 95% on the used data set.
